@@ -29,6 +29,10 @@
 *.zip
 
 # IDE files
+<<<<<<< HEAD
+=======
+.vs/
+>>>>>>> dbc971d (Add C++ Unreal Engine .gitignore)
 .vscode/
 .idea/
 *.sln
@@ -38,6 +42,10 @@
 *.sln.iml
 *.code-workspace
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dbc971d (Add C++ Unreal Engine .gitignore)
 # OS junk
 .DS_Store
 .AppleDouble
