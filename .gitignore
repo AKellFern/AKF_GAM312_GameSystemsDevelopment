@@ -1,35 +1,20 @@
-##########################################
-# 🎮 Unreal Engine 5 Project (C++ + LFS)
-##########################################
-
-# Ignore everything by default
-*
-!*/
-
-# Keep Git folder and root files
-!/.git*
+# Keep project definition and core folders
 !/*.uproject
-
-# Core UE folders
 !/Config/**
 !/Source/**
 !/Plugins/**
-
-# Track only assets you need via Git LFS
 !/Content/**/*.uasset
 !/Content/**/*.umap
-!/RawContent/**/*
+!/RawContent/**
 
-##########################################
-# 🔨 Build, Binaries, and Intermediate
-##########################################
-
+# Ignore build and generated data
 /Binaries/
 /Build/
 /DerivedDataCache/
 /Intermediate/
 /Saved/
 
+# Build artifacts
 *.pdb
 *.obj
 *.exp
@@ -43,83 +28,30 @@
 *.pak
 *.zip
 
-##########################################
-# 🧪 Rider / VS Code / IDEs
-##########################################
-
-# Rider
-.idea/
-*.sln.iml
-
-# VS Code
+# IDE files
 .vscode/
-*.code-workspace
-
-# General IDE
+.idea/
 *.sln
 *.vcxproj*
 *.user
 *.suo
+*.sln.iml
+*.code-workspace
 
-##########################################
-# 🍏 macOS / Windows / Linux Junk
-##########################################
-
-# Windows
-Thumbs.db
-ehthumbs.db
-
-# macOS
+# OS junk
 .DS_Store
 .AppleDouble
 .LSOverride
+Thumbs.db
+ehthumbs.db
 ._*
-
-# Linux
 *~
 .directory
 
-##########################################
-# 🔁 Editor / Swap / Temp Files
-##########################################
-
+# Temp and logs
 *.log
 *.tmp
 *.bak
 *.swp
 *.swo
-
-# Vim
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
 *.un~
-Session.vim
-.netrwhist
-
-##########################################
-# 🧠 Git Configs / LFS Metadata
-##########################################
-
-.gitattributes
-.gitattributes.lock
-.gitignore
-*.lfsconfig
-
-##########################################
-# 🧰 Bonus Tooling Support
-##########################################
-
-# Blender
-*.blend1
-*.blend2
-*.blend@
-
-# Python
-__pycache__/
-*.py[cod]
-
-# Node.js / npm
-node_modules/
-npm-debug.log
-yarn.lock
-package-lock.json
