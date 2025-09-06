@@ -1,4 +1,4 @@
-# AKF GAM312 Survival Game
+# AKF GAM312 Survival Game [WIP]
 
 A first-person survival prototype developed in Unreal Engine 5 for **GAM 312: Digital Game Development** at Southern New Hampshire University.  
 
