@@ -2,20 +2,33 @@
 
 
 #include "PlayerChar.h"
+#include "Camera/CameraComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/Controller.h"   // Controller, GetControlRotation()
+#include "Math/RotationMatrix.h"        // FRotationMatrix
 
 
 // Sets default values
 APlayerChar::APlayerChar()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-	PlayerCamComp = CreateDefaultSubobject<UCameraComponent>(TEXT("First Person Cam"));
+ 	//Implement Player Character based on UE documentation for smoother control.
+	PrimaryActorTick.bCanEverTick = true; // Set this character to call Tick() every frame.
 
-	PlayerCamComp->SetupAttachment(GetMesh(), "head");
+	PlayerCamComp = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCam")); // Create a CameraComponent
+	PlayerCamComp->SetupAttachment(GetCapsuleComponent()); // Attach the camera to the capsule component
+	PlayerCamComp->bUsePawnControlRotation = true; //Rotate the camera based on the controller
+	PlayerCamComp->SetRelativeLocation(FVector(20.0f, 0.0f, 74.0f)); // Position the camera about eye-level 
 
-	PlayerCamComp->bUsePawnControlRotation = true;
+	//FPS feel: let controller handle rotation, not the character
+	bUseControllerRotationYaw= true;
+	bUseControllerRotationPitch = true;
+	bUseControllerRotationRoll = false;
+	if (auto* Move = GetCharacterMovement()) {
 
-
+		Move->bOrientRotationToMovement = false; // Character moves in the direction of input...	
+		
+	}
 
 }
 
@@ -47,28 +60,41 @@ void APlayerChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 }
 
+//Allows the Player to move forward and backward
 void APlayerChar::MoveForward(float axisValue) {
 
-	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::X);
-	AddMovementInput(Direction, axisValue);
+	if (Controller && axisValue != 0.f) {
+
+		const FRotator YawRot(0.f, Controller->GetControlRotation().Yaw, 0.f);
+		const FVector Dir = FRotationMatrix(YawRot).GetUnitAxis(EAxis::X);
+		AddMovementInput(Dir, axisValue);
+	}
 }
 
+//Allows the Player to move right and left
 void APlayerChar::MoveRight(float axisValue) {
 
-	FVector Direction = FRotationMatrix(Controller->GetControlRotation()).GetScaledAxis(EAxis::Y);
-	AddMovementInput(Direction, axisValue);
+	if (Controller && axisValue != 0.f) {
+
+		const FRotator YawRot(0.f, Controller->GetControlRotation().Yaw, 0.f);
+		const FVector Dir = FRotationMatrix(YawRot).GetUnitAxis(EAxis::Y);
+		AddMovementInput(Dir, axisValue);
+	}
 }
 
+//Allows the Player to jump
 void APlayerChar::StartJump() {
 
 	bPressedJump = true;
 }
 
+//Allows the Player to stop jumping
 void APlayerChar::StopJump() {
 
 	bPressedJump = false;
 }
 
+//Placeholder function for Module Two
 void APlayerChar::FindObject() {
 }
 
