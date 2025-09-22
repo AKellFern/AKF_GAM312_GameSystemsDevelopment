@@ -5,25 +5,25 @@ A first-person survival prototype developed in Unreal Engine 5 for **GAM 312: Di
 ---
 
 ## 🎮 Project Overview
-This project was built as the final capstone for GAM 312 and demonstrates the implementation of fundamental gameplay systems in C++ and Unreal Engine, including:
+This project is being developed as part of **weekly modules** in GAM 312 and demonstrates the implementation of fundamental gameplay systems in C++ and Unreal Engine:  
 
 👤 **Player Character**: First-person controller with WASD movement, mouse look, and sprint.  
-❤️ **Player Stats**: Health, hunger, and stamina tracked with variables that increase/decrease dynamically.  
-📊 **HUD Interface**: On-screen bars display health, hunger, stamina, crafting progress, and objectives.  
-🌲 **Resource Collection**: Collision traces allow players to gather wood, stone, and berries.  
-🏠 **Building System**: Place shelter parts (walls, floors, ceilings) and manage resources via inventory.  
-🤖 **AI Character**: Navigation mesh–based AI with simple wander behavior.  
-🗺️ **Level Blockout**: Outdoor environment prototype with win/lose conditions and restart/quit functionality.  
+❤️ **Player Stats (Module 2)**: Health, hunger, and stamina tracked with variables that increase/decrease dynamically, affecting player performance.  
+📊 **HUD Interface (upcoming)**: On-screen bars for health, hunger, stamina, crafting progress, and objectives.  
+🌲 **Resource Collection (Module 2)**: Line traces allow players to gather basic resources (wood, stone, berries) by interacting with world objects.  
+🏠 **Building System (upcoming)**: Place shelter parts (walls, floors, ceilings) and manage resources via inventory.  
+🤖 **AI Character (upcoming)**: Navigation mesh–based AI with simple wander behavior.  
+🗺️ **Level Blockout (upcoming)**: Outdoor environment prototype with win/lose conditions and restart/quit functionality.  
 
-This project reflects mastery of C++ class design, linear algebra for movement vectors, navigation/pathfinding, and UI development.
+This project reflects mastery of C++ class design, linear algebra for movement vectors, collision tracing for interaction, and dynamic variable management in gameplay systems.
 
 ---
 
 ## 🧪 Technologies Used
-- **Game Engine:** Unreal Engine 5.5+  
+- **Game Engine:** Unreal Engine 5.6+  
 - **Language:** C++ (with Blueprint extensions)  
 - **Version Control:** Git + Git LFS  
-- **Tools:** Visual Studio 2022, OBS (for screencast), SNHU Virtual Lab  
+- **Tools:** Visual Studio 2022, OBS (for screencast)  
 
 ---
 
@@ -57,31 +57,32 @@ Controls:
 - **WASD** – Move  
 - **Mouse** – Look  
 - **Shift** – Sprint  
-- **E** – Collect resources  
-- **Tab** – Open crafting HUD  
+- **Left-Mouse Button** – Collect resources  
+- **Tab** – Open crafting HUD (future module)  
 
 ---
 
 ## 🧠 Course Context
 - **Course:** GAM 312 – Digital Game Development  
-- **Instructor:** Will [Last Name]  
+- **Instructor:** Will  
 - **School:** Southern New Hampshire University (SNHU)  
 - **Term:** Summer/Fall 2025  
 
 This project demonstrates competency in:  
 - Linear algebra applications in 3D games  
-- Pathfinding with navigation meshes  
-- Collision detection and resource collection  
-- Camera system libraries (FPS implementation)  
-- Event-driven HUD and UI systems  
+- Collision detection + line tracing for interactions  
+- Dynamic variable systems (health, hunger, stamina)  
+- Early resource collection mechanics  
+- Preparing for HUD/UI integration and AI navigation  
 
 ---
 
 ## 📅 Development Progress
-This project is developed in **weekly stepping stones** and will be updated regularly:  
-- **Module 1:** Project setup + Player character (WASD + mouse look).  
-- **Module 2:** Player variables (health, hunger, stamina) + Resource collection.  
-- **Module 3:** Building system (shelter placement + inventory).  
+This project is updated weekly as new systems are added:  
+
+- **Module 1 (Complete):** Project setup + Player character (WASD + mouse look).  
+- **Module 2 (Complete):** Player variables (health, hunger, stamina) + Resource collection via line trace.  
+- **Module 3 (Next):** Building system (shelter placement + inventory).  
 - **Module 4:** Player HUD + AI wander behavior.  
 - **Module 5:** Objective HUD (build 5 parts, collect 500 resources).  
 - **Module 6:** Level blockout + win/lose widgets.  
@@ -91,6 +92,6 @@ This project is developed in **weekly stepping stones** and will be updated regu
 
 ## ✍️ Author
 **Aaron Kellan-Fernandez**  
-Game Programming & Development student at SNHU  
+Game Programming & Development undergrad at SNHU  
 
-🔗 [GitHub Portfolio](https://github.com/yourusername)  
+🔗 [GitHub Portfolio](https://github.com/AKellFern)  
