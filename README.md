@@ -11,11 +11,11 @@ This project is being developed as part of **weekly modules** in GAM 312 and dem
 ❤️ **Player Stats (Module 2)**: Health, hunger, and stamina tracked with variables that increase/decrease dynamically, affecting player performance.  
 📊 **HUD Interface (upcoming)**: On-screen bars for health, hunger, stamina, crafting progress, and objectives.  
 🌲 **Resource Collection (Module 2)**: Line traces allow players to gather basic resources (wood, stone, berries) by interacting with world objects.  
-🏠 **Building System (upcoming)**: Place shelter parts (walls, floors, ceilings) and manage resources via inventory.  
+🏠 **Building System (Module 3)**: Players can now place shelter parts (walls, floors, ceilings) using inventory-managed resources. Includes a placement preview system and snap-to-grid alignment.  
 🤖 **AI Character (upcoming)**: Navigation mesh–based AI with simple wander behavior.  
 🗺️ **Level Blockout (upcoming)**: Outdoor environment prototype with win/lose conditions and restart/quit functionality.  
 
-This project reflects mastery of C++ class design, linear algebra for movement vectors, collision tracing for interaction, and dynamic variable management in gameplay systems.
+This project reflects mastery of C++ class design, linear algebra for movement vectors, collision tracing for interaction, dynamic variable management, and modular gameplay system development.
 
 ---
 
@@ -58,7 +58,7 @@ Controls:
 - **Mouse** – Look  
 - **Shift** – Sprint  
 - **Left-Mouse Button** – Collect resources  
-- **Tab** – Open crafting HUD (future module)  
+- **E** – Open crafting/building menu  
 
 ---
 
@@ -72,8 +72,8 @@ This project demonstrates competency in:
 - Linear algebra applications in 3D games  
 - Collision detection + line tracing for interactions  
 - Dynamic variable systems (health, hunger, stamina)  
-- Early resource collection mechanics  
-- Preparing for HUD/UI integration and AI navigation  
+- Resource collection mechanics  
+- Early building and inventory system integration  
 
 ---
 
@@ -82,8 +82,8 @@ This project is updated weekly as new systems are added:
 
 - **Module 1 (Complete):** Project setup + Player character (WASD + mouse look).  
 - **Module 2 (Complete):** Player variables (health, hunger, stamina) + Resource collection via line trace.  
-- **Module 3 (Next):** Building system (shelter placement + inventory).  
-- **Module 4:** Player HUD + AI wander behavior.  
+- **Module 3 (Complete):** Building system (shelter placement + inventory).  
+- **Module 4 (Next):** Player HUD + AI wander behavior.  
 - **Module 5:** Objective HUD (build 5 parts, collect 500 resources).  
 - **Module 6:** Level blockout + win/lose widgets.  
 - **Module 7:** Final polish + narrated screencast.  
@@ -94,4 +94,4 @@ This project is updated weekly as new systems are added:
 **Aaron Kellan-Fernandez**  
 Game Programming & Development undergrad at SNHU  
 
-🔗 [GitHub Portfolio](https://github.com/AKellFern)  
+🔗 [GitHub Portfolio](https://github.com/AKellFern)    
