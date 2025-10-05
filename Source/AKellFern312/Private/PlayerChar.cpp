@@ -179,6 +179,9 @@ void APlayerChar::FindObject()
 	}
 }
 
+/*After research due to my own eat berry button not functioning correctly,
+I have decided to use clamp math as this will keep the values between 0 and 100*/
+
 // Function to set the Player's Health 
 void APlayerChar::SetHealth(float amount)
 {
