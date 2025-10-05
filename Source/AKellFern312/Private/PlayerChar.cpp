@@ -53,6 +53,11 @@ void APlayerChar::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	// Update HUD bars every frame
+	playerUI->UpdateBars(Health, Hunger, Stamina);
+
+
+	// If in build mode, keep the ghost part floating in front of the player
 	if (isBuilding) {
 		if (spawnedPart) {
 
@@ -174,37 +179,29 @@ void APlayerChar::FindObject()
 	}
 }
 
+// Function to set the Player's Health 
 void APlayerChar::SetHealth(float amount)
 {
 
-	if (Health + amount < 100) {
-
-		Health += amount;
-
-	}
+	Health = FMath::Clamp(Health + amount, 0.0f, 100.0f);
 	
 }
 
+// Function to set the Player's Hunger
 void APlayerChar::SetHunger(float amount)
 {
 
-	if (Hunger + amount < 100) {
-
-		Hunger += amount;
-
-	}
+	Hunger = FMath::Clamp(Hunger + amount, 0.0f, 100.0f);
 }
 
+// Function to set the Player's Stamina
 void APlayerChar::SetStamina(float amount)
 {
 
-	if (Stamina + amount <= 100) {
-
-		Stamina += amount;
-
-	}
+	Stamina = FMath::Clamp(Stamina + amount, 0.0f, 100.0f);
 }
 
+// Function to gradually decrease player stats over time
 void APlayerChar::DecreaseStats()
 {
 	if (Hunger > 0) {
