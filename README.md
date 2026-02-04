@@ -1,40 +1,44 @@
-# AKF GAM312 Survival Game [WIP]
+# AKF_GAM312_SurvivalGame
 
-A first-person survival prototype developed in Unreal Engine 5 for **GAM 312: Digital Game Development** at Southern New Hampshire University.  
-
----
-
-## 🎮 Project Overview
-This project is being developed as part of **weekly modules** in GAM 312 and demonstrates the implementation of fundamental gameplay systems in C++ and Unreal Engine:  
-
-👤 **Player Character**: First-person controller with WASD movement, mouse look, and sprint.  
-❤️ **Player Stats (Module 2)**: Health, hunger, and stamina tracked with variables that increase/decrease dynamically, affecting player performance.  
-📊 **HUD Interface (upcoming)**: On-screen bars for health, hunger, stamina, crafting progress, and objectives.  
-🌲 **Resource Collection (Module 2)**: Line traces allow players to gather basic resources (wood, stone, berries) by interacting with world objects.  
-🏠 **Building System (Module 3)**: Players can now place shelter parts (walls, floors, ceilings) using inventory-managed resources. Includes a placement preview system and snap-to-grid alignment.  
-🤖 **AI Character (upcoming)**: Navigation mesh–based AI with simple wander behavior.  
-🗺️ **Level Blockout (upcoming)**: Outdoor environment prototype with win/lose conditions and restart/quit functionality.  
-
-This project reflects mastery of C++ class design, linear algebra for movement vectors, collision tracing for interaction, dynamic variable management, and modular gameplay system development.
+A first-person survival game prototype developed in Unreal Engine 5 as part of the GAM 312: Digital Game Development course at Southern New Hampshire University. This project focuses on implementing core gameplay systems using C++ with Blueprint integration.
 
 ---
 
-## 🧪 Technologies Used
-- **Game Engine:** Unreal Engine 5.6+  
-- **Language:** C++ (with Blueprint extensions)  
-- **Version Control:** Git + Git LFS  
-- **Tools:** Visual Studio 2022, OBS (for screencast)  
+## Project Overview
+
+This prototype explores foundational survival gameplay mechanics implemented through modular C++ class design and Unreal Engine systems. Emphasis was placed on systems integration, player interaction, and iterative development within a scoped project.
+
+Implemented gameplay systems include:
+
+- First-person player controller with movement, camera control, and sprinting
+- Player stat systems, including health, hunger, and stamina
+- Resource collection via line tracing and world interaction
+- Early building system with placement preview and snap-to-grid alignment
+- Inventory-managed resource usage
+- Level blockout supporting basic progression and testing
+
+This project demonstrates applied knowledge of C++ gameplay programming, interaction systems, and system-driven design in Unreal Engine.
 
 ---
 
-## 📂 Repository Structure
+## Technologies Used
+
+- **Game Engine:** Unreal Engine 5.5+  
+- **Programming Language:** C++ with Blueprint extensions  
+- **Version Control:** Git, Git LFS  
+- **Tools:** Visual Studio 2022  
+
+---
+
+## Repository Structure
+
 ```
 AKF_GAM312_SurvivalGame
-├── Config/              # Input bindings, project settings
-├── Source/              # C++ classes (PlayerChar, GameMode, AI, etc.)
-│   ├── Public/          
+├── Config/
+├── Source/
+│   ├── Public/
 │   └── Private/
-├── Content/             # Unreal assets (maps, UI, materials)
+├── Content/
 ├── .gitignore
 ├── .gitattributes
 ├── AKellFern312.uproject
@@ -43,55 +47,31 @@ AKF_GAM312_SurvivalGame
 
 ---
 
-## 🚀 How to Run
-1. Clone the repository with Git LFS enabled:
-   ```bash
-   git clone <repo-url>
-   git lfs pull
-   ```
-2. Open `AKellFern312.uproject` in **Unreal Engine 5.5 or newer**.  
-3. Ensure the default GameMode is set to `GAM312GameModeBase`.  
-4. Press **Play** to test the game in-editor.  
+## How to Run
 
-Controls:  
-- **WASD** – Move  
-- **Mouse** – Look  
-- **Shift** – Sprint  
-- **Left-Mouse Button** – Collect resources  
-- **E** – Open crafting/building menu  
+1. Clone the repository with Git LFS enabled.
+2. Open `AKellFern312.uproject` in Unreal Engine 5.5 or newer.
+3. Verify the default GameMode is set to the project GameMode.
+4. Press Play to test the project in-editor.
 
 ---
 
-## 🧠 Course Context
+## Course Context
+
 - **Course:** GAM 312 – Digital Game Development  
-- **Instructor:** Will  
-- **School:** Southern New Hampshire University (SNHU)  
-- **Term:** Summer/Fall 2025  
+- **Institution:** Southern New Hampshire University  
 
-This project demonstrates competency in:  
-- Linear algebra applications in 3D games  
-- Collision detection + line tracing for interactions  
-- Dynamic variable systems (health, hunger, stamina)  
-- Resource collection mechanics  
-- Early building and inventory system integration  
+Skills emphasized in this project include:
+- C++ class design for gameplay systems
+- Linear algebra applications in 3D movement
+- Collision detection and line tracing
+- Resource collection and interaction mechanics
+- Early building and inventory system integration
 
 ---
 
-## 📅 Development Progress
-This project is updated weekly as new systems are added:  
+## Author
 
-- **Module 1 (Complete):** Project setup + Player character (WASD + mouse look).  
-- **Module 2 (Complete):** Player variables (health, hunger, stamina) + Resource collection via line trace.  
-- **Module 3 (Complete):** Building system (shelter placement + inventory).  
-- **Module 4 (Next):** Player HUD + AI wander behavior.  
-- **Module 5:** Objective HUD (build 5 parts, collect 500 resources).  
-- **Module 6:** Level blockout + win/lose widgets.  
-- **Module 7:** Final polish + narrated screencast.  
-
----
-
-## ✍️ Author
 **Aaron Kellan-Fernandez**  
-Game Programming & Development undergrad at SNHU  
-
-🔗 [GitHub Portfolio](https://github.com/AKellFern)    
+Game Programming & Development student  
+GitHub: https://github.com/AKellFern
