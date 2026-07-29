@@ -8,7 +8,9 @@ public class AKellFern312EditorTarget : TargetRules
     public AKellFern312EditorTarget(TargetInfo Target) : base(Target)
     {
         Type = TargetType.Editor;
-        DefaultBuildSettings = BuildSettingsVersion.V5;
-        ExtraModuleNames.Add("AKellFern312");
+        DefaultBuildSettings = BuildSettingsVersion.V7;
+	IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
+
+	ExtraModuleNames.Add("AKellFern312");
     }
 }

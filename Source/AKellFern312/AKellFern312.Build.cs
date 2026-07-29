@@ -7,8 +7,24 @@ public class AKellFern312 : ModuleRules
     public AKellFern312(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
         PublicDependencyModuleNames.AddRange(
-            new string[] { "Core", "CoreUObject", "Engine", "InputCore" }
+            new string[]
+            {
+                "Core",
+                "CoreUObject",
+                "Engine",
+                "InputCore",
+                "UMG"
+            }
+        );
+
+        PrivateDependencyModuleNames.AddRange(
+            new string[]
+            {
+                "Slate",
+                "SlateCore"
+            }
         );
     }
 }
