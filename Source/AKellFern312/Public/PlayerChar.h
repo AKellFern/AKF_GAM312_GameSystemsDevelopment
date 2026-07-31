@@ -10,6 +10,7 @@
 #include "BuildingPart.h"
 #include "PlayerWidget.h" // For player UI widget
 #include "ObjectiveWidget.h" // For objective UI widget
+#include "Components/InteractorComponent.h" // For InteractionSystem Plugin integration
 #include "PlayerChar.generated.h"
 
 UCLASS()
@@ -48,9 +49,9 @@ public:
 	UFUNCTION()
 		void StopJump();
 
-	// Finds objects the player can interact with
+	// Calls the interaction function from the InteractorComponent
 	UFUNCTION()
-		void FindObject();
+		void CallInteraction();
 
 	// Camera component for first-person view
 	UPROPERTY(VisibleAnywhere)
@@ -120,6 +121,9 @@ public:
 	UPROPERTY()
 		float matsCollected;
 
+	// InteractionSystem Plugin integration
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
+		TObjectPtr<UInteractorComponent> InteractorComponent;
 
 	// Updates player’s health value
 	UFUNCTION(BlueprintCallable)

@@ -1,0 +1,14 @@
+"L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Source/InteractionSystem/Private/Components/InteractableComponent.cpp"
+@"L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/InteractionSystem.Shared.rsp"
+/FI"../Intermediate/Build/Win64/x64/UnrealEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h"
+/FI"L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/Definitions.InteractionSystem.h"
+/Yu"../Intermediate/Build/Win64/x64/UnrealEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h"
+/Fp"../Intermediate/Build/Win64/x64/UnrealEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.pch"
+/Fo"L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/InteractableComponent.cpp.obj"
+/experimental:log "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/InteractableComponent.cpp.sarif"
+/sourceDependencies "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/InteractableComponent.cpp.dep.json"
+/nologo
+/TP
+/GR-
+/std:c++20
+/wd5054

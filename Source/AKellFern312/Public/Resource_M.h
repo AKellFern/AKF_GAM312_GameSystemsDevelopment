@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/TextRenderComponent.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/InteractableComponent.h" // For InteractionSystem Plugin integration
 #include "Resource_M.generated.h"
 
 UCLASS()
@@ -45,6 +46,11 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		UStaticMesh* resourceMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Interaction")
+		TObjectPtr<UInteractableComponent> InteractableComponent;
+
+
 
 
 

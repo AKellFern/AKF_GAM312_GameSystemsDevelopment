@@ -36,6 +36,9 @@ APlayerChar::APlayerChar()
 	ResourcesNameArray.Add(TEXT("Stone"));
 	ResourcesNameArray.Add(TEXT("Berry"));
 
+	// InteractionSystem Plugin integration
+	InteractorComponent = CreateDefaultSubobject<UInteractorComponent>(TEXT("InteractorComponent"));
+
 }
 
 // Called when the game starts or when spawned
@@ -87,7 +90,7 @@ void APlayerChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis("Turn", this, &APlayerChar::AddControllerYawInput);
 	PlayerInputComponent->BindAction("JumpEvent", IE_Pressed, this, &APlayerChar::StartJump);
 	PlayerInputComponent->BindAction("JumpEvent", IE_Released, this, &APlayerChar::StopJump);
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerChar::FindObject);
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerChar::CallInteraction);
 	PlayerInputComponent->BindAction("RotPart", IE_Pressed, this, &APlayerChar::RotateBuilding);
 
 
@@ -127,73 +130,12 @@ void APlayerChar::StopJump() {
 	bPressedJump = false;
 }
 
-//Placeholder function for Module Two
-void APlayerChar::FindObject()
+//Calls the interaction function from the InteractorComponent
+void APlayerChar::CallInteraction()
 {
-	FHitResult HitResult;
-	FVector StartLocation = PlayerCamComp->GetComponentLocation();
-	FVector Direction = PlayerCamComp->GetForwardVector() * 800.0f;
-	FVector EndLocation = StartLocation + Direction;
-
-	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(this);
-	QueryParams.bTraceComplex = true;
-	QueryParams.bReturnFaceIndex = true;
-
-	if (!isBuilding) {
-
-		if (GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, QueryParams))
-		{
-			AResource_M* HitResource = Cast<AResource_M>(HitResult.GetActor());
-
-			if (Stamina > 5.0f)
-			{
-				if (HitResource)
-				{
-					FString hitName = HitResource->resourceName;
-					int resourceValue = HitResource->resourceAmount;
-
-					HitResource->totalResource -= resourceValue;
-
-					if (HitResource->totalResource > resourceValue)
-					{
-						GiveResource(resourceValue, hitName);
-
-
-						// Update the objective UI	
-						matsCollected = matsCollected + resourceValue;
-
-						objWidget->UpdatematOBJ(matsCollected);
-
-						check(GEngine != nullptr);
-						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Collected"));
-
-						UGameplayStatics::SpawnDecalAtLocation(GetWorld(), hitDecal, FVector(10.0f, 10.0f, 10.0f), HitResult.Location, FRotator(-90, 0, 0), 2.0f);
-
-						SetStamina(-5.0f);
-					}
-
-					else
-					{
-						HitResource->Destroy();
-						check(GEngine != nullptr);
-						GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Resource Depleted"));
-					}
-				}
-			}
-
-		}
-
-	}
-
-	else {
-
-		isBuilding = false;
-
-		// Update the objective UI
-		objectsBuilt = objectsBuilt + 1.0f;
-
-		objWidget->UpdatebuildOBJ(objectsBuilt);
+	if (InteractorComponent)
+	{
+		InteractorComponent->Interact();
 	}
 }
 

@@ -17,6 +17,8 @@ AResource_M::AResource_M()
 
 	ResourceNameTxt->SetupAttachment(Mesh);
 
+	InteractableComponent = CreateDefaultSubobject<UInteractableComponent>(TEXT("InteractableComponent"));
+
 }
 
 // Called when the game starts or when spawned

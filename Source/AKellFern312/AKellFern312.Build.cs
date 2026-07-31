@@ -15,7 +15,8 @@ public class AKellFern312 : ModuleRules
                 "CoreUObject",
                 "Engine",
                 "InputCore",
-                "UMG"
+                "UMG",
+                "InteractionSystem"
             }
         );
 
