@@ -29,17 +29,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		FString resourceName = "Wood";
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int resourceAmount = 5;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		int totalResource = 100;
 
 	UPROPERTY()
 		FText tempText;
-
-	UPROPERTY(EditAnywhere)
-		UTextRenderComponent* ResourceNameTxt;
 
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* Mesh;

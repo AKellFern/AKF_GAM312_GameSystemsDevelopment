@@ -225,7 +225,7 @@ void APlayerChar::DecreaseStats()
 	}
 }
 
-void APlayerChar::GiveResource(float amount, FString resourceType)
+void APlayerChar::GiveResource(int amount, FString resourceType)
 {
 	if (resourceType == "Wood") 
 	{
@@ -243,7 +243,7 @@ void APlayerChar::GiveResource(float amount, FString resourceType)
 	}
 }
 
-void APlayerChar::UpdateResources(float woodAmount, float stoneAmount, FString buildingObject)
+void APlayerChar::UpdateResources(int woodAmount, int stoneAmount, FString buildingObject)
 {
 	if (woodAmount <= ResourcesArray[0]) {
 

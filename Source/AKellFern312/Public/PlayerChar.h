@@ -151,11 +151,11 @@ public:
 
 	// Adds a specific resource type to player inventory
 	UFUNCTION(BlueprintCallable)
-		void GiveResource(float amount, FString resourceType);
+		void GiveResource(int amount, FString resourceType);
 
 	// Updates resource counts and building materials in UI
 	UFUNCTION(BlueprintCallable)
-		void UpdateResources(float woodAmount, float stoneAmount, FString buildingObject);
+		void UpdateResources(int woodAmount, int stoneAmount, FString buildingObject);
 
 	// Spawns a building piece based on given ID
 	UFUNCTION(BlueprintCallable)
