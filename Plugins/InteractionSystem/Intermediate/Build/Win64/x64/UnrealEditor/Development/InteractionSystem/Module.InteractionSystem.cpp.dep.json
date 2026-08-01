@@ -17,7 +17,12 @@
             "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\public\\components\\interactorcomponent.h",
             "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionsystem\\uht\\interactorcomponent.generated.h",
             "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\interactionsystem\\permoduleinline.gen.cpp",
-            "w:\\unrealengine\\ue_5.x_source\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+            "w:\\unrealengine\\ue_5.x_source\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl",
+            "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\private\\components\\interactablecomponent.cpp",
+            "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\public\\interactionsystem.h",
+            "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\private\\components\\interactorcomponent.cpp",
+            "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\private\\interactionsystem.cpp",
+            "l:\\unrealprojects\\akellfern312\\plugins\\interactionsystem\\source\\interactionsystem\\private\\interfaces\\interactable.cpp"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

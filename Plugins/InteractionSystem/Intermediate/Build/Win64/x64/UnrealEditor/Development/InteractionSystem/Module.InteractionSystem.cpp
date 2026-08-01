@@ -4,3 +4,7 @@
 #include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/UnrealEditor/Inc/InteractionSystem/UHT/InteractionSystem.init.gen.cpp"
 #include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/UnrealEditor/Inc/InteractionSystem/UHT/InteractorComponent.gen.cpp"
 #include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Intermediate/Build/Win64/x64/UnrealEditor/Development/InteractionSystem/PerModuleInline.gen.cpp"
+#include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Source/InteractionSystem/Private/Components/InteractableComponent.cpp"
+#include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Source/InteractionSystem/Private/Components/InteractorComponent.cpp"
+#include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Source/InteractionSystem/Private/InteractionSystem.cpp"
+#include "L:/UnrealProjects/AKellFern312/Plugins/InteractionSystem/Source/InteractionSystem/Private/Interfaces/Interactable.cpp"

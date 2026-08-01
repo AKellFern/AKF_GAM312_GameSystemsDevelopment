@@ -5,3 +5,6 @@
 
 IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, AKellFern312, "AKellFern312");
 
+DEFINE_LOG_CATEGORY(LogInteractionSystem);
+
+

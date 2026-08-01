@@ -11,6 +11,7 @@
 #include "PlayerWidget.h" // For player UI widget
 #include "ObjectiveWidget.h" // For objective UI widget
 #include "Components/InteractorComponent.h" // For InteractionSystem Plugin integration
+#include "Logging/LogMacros.h" // For logging
 #include "PlayerChar.generated.h"
 
 UCLASS()
@@ -25,6 +26,13 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	// Interaction Widget 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Interaction")
+		TSubclassOf<UUserWidget> InteractionPromptClass;
+
+	UPROPERTY()
+		UUserWidget* InteractionPromptWidget;
 
 public:
 	// Called every frame
@@ -68,13 +76,13 @@ public:
 		float Stamina = 100.0f;
 
 	// Resource counts
-	UPROPERTY(EditAnywhere, Category = "Resources")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
 		int Wood;
 
-	UPROPERTY(EditAnywhere, Category = "Resources")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
 		int Stone;
 
-	UPROPERTY(EditAnywhere, Category = "Resources")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
 		int Berry;
 
 	// Array to hold current resource amounts
@@ -142,7 +150,7 @@ public:
 		void DecreaseStats();
 
 	// Adds a specific resource type to player inventory
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 		void GiveResource(float amount, FString resourceType);
 
 	// Updates resource counts and building materials in UI

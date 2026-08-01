@@ -6,7 +6,8 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"   // Controller, GetControlRotation()
-#include "Math/RotationMatrix.h"        // FRotationMatrix
+#include "Math/RotationMatrix.h"   // FRotationMatrix
+#include "../AKellFern312.h"
 
 
 // Sets default values
@@ -56,6 +57,24 @@ void APlayerChar::BeginPlay()
 		objWidget->UpdatematOBJ(0.0f);
 	}
 
+	if (InteractionPromptClass)
+	{
+		InteractionPromptWidget = CreateWidget<UUserWidget>(GetWorld()->GetFirstPlayerController(), InteractionPromptClass);
+
+		if (InteractionPromptWidget)
+		{
+			InteractionPromptWidget->AddToViewport();
+			InteractionPromptWidget->SetVisibility(ESlateVisibility::Hidden);
+		}
+		else
+		{
+			UE_LOG(LogInteractionSystem, Error, TEXT("Failed to create Interaction Prompt Widget from class %s"), *GetNameSafe(InteractionPromptClass));
+		}
+		
+	}
+
+	InteractorComponent->SetTraceOrigin(PlayerCamComp);
+
 }
 
 // Called every frame
@@ -78,7 +97,30 @@ void APlayerChar::Tick(float DeltaTime)
 		}
 	}
 
+	if (InteractorComponent)
+	{
+		if (InteractorComponent->GetCurrentInteractableActor())
+		{
+			UE_LOG(LogInteractionSystem, Warning, TEXT("Interactor found: %s"),
+				*InteractorComponent->GetCurrentInteractableActor()->GetName());
+		}
+		else
+		{
+			UE_LOG(LogInteractionSystem, Warning, TEXT("Interactor found nothing"));
+		}
+	}
+
+	const bool bHasInteractable = IsValid(InteractorComponent->GetCurrentInteractableActor());
+
+	if (InteractionPromptWidget)
+	{
+		InteractionPromptWidget->SetVisibility(
+			bHasInteractable
+			? ESlateVisibility::Visible
+			: ESlateVisibility::Hidden);
+	}
 }
+
 
 // Called to bind functionality to input
 void APlayerChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -262,7 +304,6 @@ void APlayerChar::RotateBuilding()
 
 	if (isBuilding)
 	{
-
 		spawnedPart->AddActorWorldRotation(FRotator(0, 90, 0));
 	}
 }
