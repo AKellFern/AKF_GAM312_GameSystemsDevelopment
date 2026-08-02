@@ -7,7 +7,7 @@
 #include "PlayerWidget.generated.h"
 
 /**
- * 
+ * HUD widget showing the player's health, hunger, and stamina bars.
  */
 UCLASS()
 class AKELLFERN312_API UPlayerWidget : public UUserWidget

@@ -8,6 +8,7 @@
 #include "GameFramework/Controller.h"   // Controller, GetControlRotation()
 #include "Math/RotationMatrix.h"   // FRotationMatrix
 #include "../AKellFern312.h"
+#include "BuildingSubsystem.h"
 
 
 // Sets default values
@@ -57,6 +58,7 @@ void APlayerChar::BeginPlay()
 		objWidget->UpdatematOBJ(0.0f);
 	}
 
+	// Create the interaction prompt widget once and keep it hidden until something interactable is targeted
 	if (InteractionPromptClass)
 	{
 		InteractionPromptWidget = CreateWidget<UUserWidget>(GetWorld()->GetFirstPlayerController(), InteractionPromptClass);
@@ -87,16 +89,18 @@ void APlayerChar::Tick(float DeltaTime)
 
 
 	// If in build mode, keep the ghost part floating in front of the player
-	if (isBuilding) {
-		if (spawnedPart) {
-
+	if (UBuildingSubsystem* BuildingSubsystem = GetBuildingSubsystem())
+	{
+		if (BuildingSubsystem->IsBuilding())
+		{
 			FVector StartLocation = PlayerCamComp->GetComponentLocation();
 			FVector Direction = PlayerCamComp->GetForwardVector() * 400.0f;
 			FVector EndLocation = StartLocation + Direction;
-			spawnedPart->SetActorLocation(EndLocation);
+			BuildingSubsystem->UpdateBuildingPosition(EndLocation);
 		}
 	}
 
+	// Debug logging of whatever the InteractorComponent's trace is currently targeting
 	if (InteractorComponent)
 	{
 		if (InteractorComponent->GetCurrentInteractableActor())
@@ -110,6 +114,7 @@ void APlayerChar::Tick(float DeltaTime)
 		}
 	}
 
+	// Show the interaction prompt only while a valid interactable is targeted
 	const bool bHasInteractable = IsValid(InteractorComponent->GetCurrentInteractableActor());
 
 	if (InteractionPromptWidget)
@@ -225,6 +230,7 @@ void APlayerChar::DecreaseStats()
 	}
 }
 
+// Adds the given amount to the matching slot in ResourcesArray based on resourceType
 void APlayerChar::GiveResource(int amount, FString resourceType)
 {
 	if (resourceType == "Wood") 
@@ -243,6 +249,7 @@ void APlayerChar::GiveResource(int amount, FString resourceType)
 	}
 }
 
+// Spends wood/stone from ResourcesArray and adds one to the matching BuildingArray slot, if affordable
 void APlayerChar::UpdateResources(int woodAmount, int stoneAmount, FString buildingObject)
 {
 	if (woodAmount <= ResourcesArray[0]) {
@@ -273,37 +280,45 @@ void APlayerChar::UpdateResources(int woodAmount, int stoneAmount, FString build
 	}
 }
 
+// Checks inventory for the requested piece, then asks UBuildingSubsystem to spawn it in front of the camera
 void APlayerChar::SpawnBuilding(int buildingID, bool& isSuccess)
 {
-	if (!isBuilding){
+	isSuccess = false;
 
-		if (BuildingArray[buildingID] >= 1){
+	UBuildingSubsystem* BuildingSubsystem = GetBuildingSubsystem();
 
-			isBuilding = true;
-			FActorSpawnParameters SpawnParams;
-			FVector StartLocation = PlayerCamComp->GetComponentLocation();
-			FVector Direction = PlayerCamComp->GetForwardVector() * 400.0f;
-			FVector EndLocation = StartLocation + Direction;
-			FRotator myRot(0, 0, 0);
+	if (!BuildingSubsystem || BuildingSubsystem->IsBuilding())
+	{
+		return;
+	}
 
+	if (BuildingArray[buildingID] >= 1)
+	{
+		FVector StartLocation = PlayerCamComp->GetComponentLocation();
+		FVector Direction = PlayerCamComp->GetForwardVector() * 400.0f;
+		FVector EndLocation = StartLocation + Direction;
+		FRotator myRot(0, 0, 0);
+
+		isSuccess = BuildingSubsystem->SpawnBuilding(BuildPartClass, EndLocation, myRot);
+
+		if (isSuccess)
+		{
 			BuildingArray[buildingID] -= 1;
-
-			spawnedPart = GetWorld()->SpawnActor<ABuildingPart>(BuildPartClass, EndLocation, myRot, SpawnParams);
-
-			isSuccess = true;
-
 		}
-
-		isSuccess = false;
-
 	}
 }
 
+// Forwards the rotate-building input to UBuildingSubsystem
 void APlayerChar::RotateBuilding()
 {
-
-	if (isBuilding)
+	if (UBuildingSubsystem* BuildingSubsystem = GetBuildingSubsystem())
 	{
-		spawnedPart->AddActorWorldRotation(FRotator(0, 90, 0));
+		BuildingSubsystem->RotateBuilding();
 	}
+}
+
+// Looks up the current world's building subsystem instance
+UBuildingSubsystem* APlayerChar::GetBuildingSubsystem() const
+{
+	return GetWorld() ? GetWorld()->GetSubsystem<UBuildingSubsystem>() : nullptr;
 }

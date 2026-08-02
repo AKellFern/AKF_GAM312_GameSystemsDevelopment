@@ -9,6 +9,7 @@
 class UStaticMeshComponent;
 class UArrowComponent;
 
+// A placeable building piece (wall, floor, ceiling, etc.) spawned by the building system
 UCLASS()
 class AKELLFERN312_API ABuildingPart : public AActor
 {
@@ -26,9 +27,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	// Visual mesh for this building piece
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* Mesh;
 
+	// Root component defining the piece's pivot/snap point
 	UPROPERTY(EditAnywhere)
 		UArrowComponent* PivotArrow;
 };

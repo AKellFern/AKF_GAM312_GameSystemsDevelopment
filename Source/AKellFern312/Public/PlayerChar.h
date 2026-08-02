@@ -14,6 +14,7 @@
 #include "Logging/LogMacros.h" // For logging
 #include "PlayerChar.generated.h"
 
+// First-person survival player character: movement, stats, resources, building, and interaction
 UCLASS()
 class AKELLFERN312_API APlayerChar : public ACharacter
 {
@@ -31,6 +32,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Interaction")
 		TSubclassOf<UUserWidget> InteractionPromptClass;
 
+	// The created instance of InteractionPromptClass, shown/hidden based on what the player is looking at
 	UPROPERTY()
 		UUserWidget* InteractionPromptWidget;
 
@@ -101,19 +103,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Building Supplies")
 		TArray<int> BuildingArray;
 
-	// Whether player is currently in build mode
-	UPROPERTY()
-		bool isBuilding;
-
 	// Class type to spawn when building
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Building Supplies")
 		TSubclassOf<ABuildingPart> BuildPartClass;
 
-	// Reference to the currently spawned building part
-	UPROPERTY()
-		ABuildingPart* spawnedPart;
-
-	// Reference to the player’s UI widget
+	// Reference to the playerï¿½s UI widget
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UPlayerWidget* playerUI;
 
@@ -133,15 +127,15 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Interaction")
 		TObjectPtr<UInteractorComponent> InteractorComponent;
 
-	// Updates player’s health value
+	// Updates playerï¿½s health value
 	UFUNCTION(BlueprintCallable)
 		void SetHealth(float amount);
 
-	// Updates player’s hunger value
+	// Updates playerï¿½s hunger value
 	UFUNCTION(BlueprintCallable)
 		void SetHunger(float amount);
 
-	// Updates player’s stamina value
+	// Updates playerï¿½s stamina value
 	UFUNCTION(BlueprintCallable)
 		void SetStamina(float amount);
 
@@ -157,11 +151,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 		void UpdateResources(int woodAmount, int stoneAmount, FString buildingObject);
 
-	// Spawns a building piece based on given ID
+	// Spawns a building piece based on given ID, delegating placement to UBuildingSubsystem
 	UFUNCTION(BlueprintCallable)
 		void SpawnBuilding(int buildingID, bool& isSuccess);
 
 	// Rotates the current building part before placing it
 	UFUNCTION()
 		void RotateBuilding();
+
+private:
+	// Helper to fetch the world's building subsystem
+	class UBuildingSubsystem* GetBuildingSubsystem() const;
+
 };

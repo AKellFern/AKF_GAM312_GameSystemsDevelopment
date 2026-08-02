@@ -7,7 +7,7 @@
 #include "ObjectiveWidget.generated.h"
 
 /**
- * 
+ * HUD widget showing progress toward the player's build and resource-collection objectives.
  */
 UCLASS()
 class AKELLFERN312_API UObjectiveWidget : public UUserWidget
