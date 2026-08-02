@@ -7,12 +7,17 @@
 !/Content/**/*.umap
 !/RawContent/**
 
-# Ignore build and generated data
-/Binaries/
-/Build/
-/DerivedDataCache/
-/Intermediate/
-/Saved/
+# Ignore build and generated data (no leading slash so this also catches
+# per-plugin copies, e.g. Plugins/InteractionSystem/Binaries/)
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Ignore packaged build output (e.g. from Package Project), which can be
+# multiple GB and includes large .ucas/.utoc content archives
+/PROJECT/
 
 # Build artifacts
 *.pdb
@@ -29,10 +34,7 @@
 *.zip
 
 # IDE files
-<<<<<<< HEAD
-=======
 .vs/
->>>>>>> dbc971d (Add C++ Unreal Engine .gitignore)
 .vscode/
 .idea/
 *.sln
@@ -42,10 +44,6 @@
 *.sln.iml
 *.code-workspace
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dbc971d (Add C++ Unreal Engine .gitignore)
 # OS junk
 .DS_Store
 .AppleDouble
