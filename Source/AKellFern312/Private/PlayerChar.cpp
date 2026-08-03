@@ -139,6 +139,7 @@ void APlayerChar::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("JumpEvent", IE_Released, this, &APlayerChar::StopJump);
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &APlayerChar::CallInteraction);
 	PlayerInputComponent->BindAction("RotPart", IE_Pressed, this, &APlayerChar::RotateBuilding);
+	PlayerInputComponent->BindAction("PlaceBuilding", IE_Pressed, this, &APlayerChar::ConfirmBuilding);
 
 
 }
@@ -314,6 +315,15 @@ void APlayerChar::RotateBuilding()
 	if (UBuildingSubsystem* BuildingSubsystem = GetBuildingSubsystem())
 	{
 		BuildingSubsystem->RotateBuilding();
+	}
+}
+
+// Forwards the confirm-placement input to UBuildingSubsystem
+void APlayerChar::ConfirmBuilding()
+{
+	if (UBuildingSubsystem* BuildingSubsystem = GetBuildingSubsystem())
+	{
+		BuildingSubsystem->ConfirmPlacement();
 	}
 }
 

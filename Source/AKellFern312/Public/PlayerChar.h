@@ -159,6 +159,10 @@ public:
 	UFUNCTION()
 		void RotateBuilding();
 
+	// Confirms placement of the current building part, leaving it where it is
+	UFUNCTION()
+		void ConfirmBuilding();
+
 private:
 	// Helper to fetch the world's building subsystem
 	class UBuildingSubsystem* GetBuildingSubsystem() const;

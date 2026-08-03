@@ -35,6 +35,11 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Building")
 		bool IsBuilding() const { return bIsBuilding; }
 
+	// Finalizes placement, leaving the spawned part where it currently is and
+	// ending build mode so it stops following the caller's location updates.
+	UFUNCTION(BlueprintCallable, Category = "Building")
+		void ConfirmPlacement();
+
 protected:
 	// Whether a building part is currently being placed
 	UPROPERTY()

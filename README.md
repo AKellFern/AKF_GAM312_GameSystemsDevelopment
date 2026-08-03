@@ -70,6 +70,26 @@ Skills emphasized in this project include:
 
 ---
 
+## Third-Party Assets
+
+This project incorporates third-party art assets to support environment and gameplay prototyping.
+
+### Environment Assets
+- **Modular Wooden Cabin Parts – 9 Low Poly Building Modules (Game Ready)**
+  - Creator: MagicShins
+  - Source: https://www.fab.com/listings/413ea14e-0417-4446-8a3a-f1cf98b116c6
+  - Used under the Fab Standard License.
+
+### Resource Assets
+- **KayKit: Resource Bits**
+  - Creator: Kay Lousberg
+  - Source: https://kaylousberg.itch.io/resource-bits
+  - Licensed under CC0 (Creative Commons Zero). Attribution is appreciated but not required. :contentReference[oaicite:1]{index=1}
+
+All gameplay programming, C++ systems, Unreal Engine integration, plugin architecture, PCG implementation, UI, and gameplay mechanics were developed as part of this project. Third-party assets are used solely to support the visual presentation of the prototype.
+
+---
+
 ## Author
 
 **Aaron Kellan-Fernandez**  

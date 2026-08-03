@@ -40,3 +40,10 @@ void UBuildingSubsystem::UpdateBuildingPosition(FVector Location)
 		SpawnedPart->SetActorLocation(Location);
 	}
 }
+
+// Ends build mode, leaving the spawned part in the world at its current transform
+void UBuildingSubsystem::ConfirmPlacement()
+{
+	bIsBuilding = false;
+	SpawnedPart = nullptr;
+}
